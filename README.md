@@ -85,6 +85,22 @@ Allow to instantiate a object that answers itself whenever a message is send to 
 
 Implement pattern matching for regular expressions, binding regex groups
 
+### Example
+
+```ruby
+"foo bar".matches do
+  on /(.*)_(.*)/ do |foo, bar|
+    #....
+  end
+  on /(.*)-(.*)-(.*)/ do |foo, bar, baz|
+    #....
+  end
+  fallback do
+    #....
+  end
+end
+```
+
 ### Optional requirements
 
 Generalize this to any object, not just regexps
