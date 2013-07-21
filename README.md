@@ -1,17 +1,15 @@
 ruby-metaprogramming-kata
 =========================
 
-Kata about metaprogamming in Ruby, consisting of implementing some design patterns
+Kata about metaprogamming in Ruby, consisting of implementing some design patterns and idioms
 
-# GOF Patterns
+# Singleton 
 
-## Singleton 
-
-### Minimum requirements
+## Minimum requirements
 
 Allow any class to understand a ```singletonize``` message, which adds to it a instance/get_instance method, which returns always the same instance of the class. 
 
-### Example
+## Example
 
 ```ruby
 class Foo
@@ -23,12 +21,12 @@ end
 Foo.instance == Foo.instance #should be true
 ```
 
-### Optional requirements: 
+## Optional requirements: 
   * remove, hide or rename the new method. 
   * implement trivial - nont thread safe - lazy loading
   * allow to parameterize the get_instance selector
 
-## Decorator / Interceptor
+# Decorator / Interceptor
 
 ```ruby
 
@@ -68,24 +66,23 @@ decorator = Foo.new(decoree)
 decorator.bar("hello", "world") #should print "bar\nhello\nworld\n"
 ```
 
-## NullObject 
+# NullObject 
 
-### Minimum requirements
+## Minimum requirements
 
 Allow to instantiate a object that answers itself whenever a message is send to it
 
-### Optional Requirements
+## Optional Requirements
   * Allow to inherit from a null object class
 
-# Non GOF Patterns
 
-## Pattern Matching
+# Pattern Matching
 
-### Minimum Requirement
+## Minimum Requirement
 
 Implement pattern matching for regular expressions, binding regex groups
 
-### Example
+## Example
 
 ```ruby
 "foo bar".matches do
@@ -101,13 +98,13 @@ Implement pattern matching for regular expressions, binding regex groups
 end
 ```
 
-### Optional requirements
+## Optional requirements
 
 Generalize this to any object, not just regexps
 
-## Multimethod
+# Multimethod
 
-### Example
+## Example
 
 ```ruby
 
@@ -129,13 +126,13 @@ Foo.new.bar(FooBaz.new, 2) #should fail, since there is no overloaded version of
 
 
 
-## DeafMethod 
+# DeafMethod 
 
-### Minimum requirement
+## Minimum requirement
 
 Allow to define methods using a ```deaf``` keyword instead of ```def```. Such methods does not have any body, since their implementation is empty, and take no arguments.
 
-### Example
+## Example
      
 ```ruby
 
@@ -154,7 +151,7 @@ class Foo
 end
 ```
    
-### Optional requirements
+## Optional requirements
 
 Allow deaf methods to take any number of arguments
   
